@@ -1,0 +1,25 @@
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+canvas {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#c4 {
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}

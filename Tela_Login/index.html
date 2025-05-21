@@ -1,0 +1,159 @@
+<!-- DIREITOS AUTORAIS ALAN PAZ - UNIVESP -2025 LIC GPL 2.0 -->
+<!-- COLAB PROJETO INTEGRADOR DRP01-PJI110 POLO ITAPEVI-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DRP01-PJI110 POLO ITAPEVI PROJETO INTEGRADOR </title>
+  <link rel="stylesheet" href="./static/style.css">
+
+  <style>
+    /* Estilo para centralizar o formulário */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1a1a1a; /* Fundo escuro mais suave */
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Container do formulário de login */
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.9); /* Caixa semitransparente com fundo branco */
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      width: 350px;
+      text-align: center;
+      border: 2px solid #FFD700; /* Bordas douradas */
+      position: relative;
+    }
+
+    /* Estilo para o título */
+    .login-container h2 {
+      color: #FFD700;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Estilo para o texto adicional */
+    .login-container p {
+      color: #FFD700;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* Estilo para o campo de entrada */
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      border: 2px solid #FFD700;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Estilo para o botão de login */
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #FFD700;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .login-container button:hover {
+      background-color: #f0c000;
+    }
+
+    /* Estilo para a mensagem de erro */
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    /* Estilos para os canvases */
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Coloca os canvases abaixo do conteúdo */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Canvas para os efeitos visuais -->
+<canvas id="c6"></canvas><!--moon-->
+<canvas id="c1"></canvas><!--lightning-->
+<canvas id="c2"></canvas><!--lightning-->
+<canvas id="c3"></canvas><!--clouds-->
+<canvas id="c4"></canvas><!--mtns/forest-->
+<canvas id="c5"></canvas><!--rain-->
+
+<!-- Formulário de login -->
+<div class="login-container">
+  <h2>PROJETO INTEGRADOR UNIVESP
+DRP01-PJI110 POLO ITAPEVI</h2>
+  <form id="login-form">
+    <input type="text" id="username" placeholder="Usuário" required>
+    <input type="password" id="password" placeholder="Senha" required>
+    <button type="submit">Entrar</button>
+    <p class="error-message" id="error-message"></p>
+  </form>
+</div>
+
+<script>
+// Lista de usuários e senhas (para fins de demonstração)
+const users = [
+  { username: "user1", password: "1234" },
+  { username: "user2", password: "senha456" },
+  { username: "user3", password: "senha789" }
+];
+
+// Função para validar o login
+function validateLogin(username, password) {
+  // Procurar o usuário na lista de usuários
+  const user = users.find(user => user.username === username && user.password === password);
+  return user !== undefined; // Retorna true se o usuário for encontrado
+}
+
+// Manipulando o envio do formulário de login
+document.getElementById('login-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita o envio do formulário (recarregar a página)
+
+  // Obtém o nome de usuário e a senha do formulário
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Verifica se as credenciais estão corretas
+  if (validateLogin(username, password)) {
+    alert("Login bem-sucedido!");
+    // Redireciona para a página home.html
+    window.location.href = "home.html";
+  } else {
+    // Exibe uma mensagem de erro
+    document.getElementById('error-message').textContent = "Usuário ou senha incorretos!";
+  }
+});
+</script>
+
+<script src="./static/script.js"></script>
+
+</body>
+</html>
