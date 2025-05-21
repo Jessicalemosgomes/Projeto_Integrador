@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJETO INTEGRADOR</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="dashboard">
+  <header class="dashboard-header">
+    <h1>GRÁFICO ESTATÍSTICAS DE ENCHENTES</h1>
+    <div class="notifications" id="notifications">
+      <span>🔔 PROJETO INTEGRADOR </span>
+      <div class="notification-dropdown" id="notificationDropdown">
+        <ul>
+          <li>Notificação 1: Precipitação intensa registrada</li>
+          <li>Notificação 2: Aumento da área afetada por enchentes</li>
+          <li>Notificação 3: Alerta de alagamento na região de Itapevi</li>
+        </ul>
+      </div>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </header>
+
+  <nav class="sidebar" id="sidebar">
+    <button class="close-sidebar" id="closeSidebar">✖</button>
+    <ul>
+      <li data-target="home">INÍCIO</li>
+      <li data-target="analytics">ANÁLISE DE DADOS</li>
+      <li data-target="reports">Relatórios</li>
+      <li data-target="support">Suporte</li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <!-- Home Section (default) -->
+    <section id="home" class="content-section active">
+      <h2>Gráfico de Precipitação e Áreas Afetadas</h2>
+      <canvas id="performanceChart"></canvas>
+
+      <h2>Estatísticas de Enchentes e Alagamentos</h2>
+      <div class="stats">
+        <div class="stat-item">NÚMERO DE CHUVAS: 350</div>
+        <div class="stat-item">ÁREAS AFETADAS: 45</div>
+        <div class="stat-item">VOLUME DE ÁGUA: 1200 mm</div>
+        <div class="stat-item">NÚMERO DE ALAGAMENTOS: 30</div>
+        <div class="stat-item">ÁREAS DE RISCO: 10</div>
+      </div>
+
+      <h2>Dados Recentes sobre Enchentes e Alagamentos</h2>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Impacto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>07.09.2024</td>
+            <td>Chuvas intensas, alagamento na região central de Itapevi</td>
+            <td>Áreas de risco aumentadas, transbordamento de rios</td>
+          </tr>
+          <tr>
+            <td>06.09.2024</td>
+            <td>Fortes precipitações, alagamentos na Zona Norte</td>
+            <td>Inundações em várias vias, casas afetadas</td>
+          </tr>
+          <tr>
+            <td>05.09.2024</td>
+            <td>Chuvas torrenciais, risco de deslizamento em áreas de morro</td>
+            <td>Deslizamentos de terra, casas e ruas bloqueadas</td>
+          </tr>
+          <tr>
+            <td>04.09.2024</td>
+            <td>Chuva forte, alagamento na região Sul</td>
+            <td>Áreas comerciais inundadas, dificuldades no trânsito</td>
+          </tr>
+          <tr>
+            <td>03.09.2024</td>
+            <td>Chuvas constantes, alagamento na Zona Oeste</td>
+            <td>Ruas alagadas, risco de novos deslizamentos</td>
+          </tr>
+          <tr>
+            <td>02.09.2024</td>
+            <td>Precipitações severas, alagamentos em bairros periféricos</td>
+            <td>Casas alagadas, moradores evacuados</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Analytics Section -->
+    <section id="analytics" class="content-section" style="display: none;">
+      <h2>ANÁLISE DE DADOS</h2>
+
+      <!-- Gráfico de Estatísticas de Enchentes -->
+      <div class="chart-container">
+        <h3>Estatísticas de Enchentes</h3>
+        <canvas id="userStatisticsChart"></canvas>
+      </div>
+
+      <!-- Gráfico de Fontes de Alagamentos -->
+      <div class="chart-container">
+        <h3>Fontes de Alagamentos</h3>
+        <canvas id="trafficSourcesChart"></canvas>
+      </div>
+
+      <!-- Visão Geral de Performance -->
+      <div class="chart-container">
+        <h3>Visão Geral de Performance</h3>
+        <canvas id="performanceOverviewChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Relatórios Section -->
+    <section id="reports" class="content-section" style="display: none;">
+      <h2>Relatórios</h2>
+
+      <!-- Filtro de Data -->
+      <div class="reports-options">
+        <label for="dateRange">Período:</label>
+        <input type="date" id="startDate"> até
+        <input type="date" id="endDate">
+
+        <button id="downloadReport">Baixar Relatório como CSV</button>
+      </div>
+
+      <!-- Tabela de Relatório de Enchentes -->
+      <div class="reports-table-container">
+        <h3>Relatório de Enchentes</h3>
+        <table class="reports-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Localização</th>
+              <th>Volume de Precipitação</th>
+              <th>Impacto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2024-09-01</td>
+              <td>Centro de Itapevi</td>
+              <td>150 mm</td>
+              <td>Alagamentos em várias vias</td>
+            </tr>
+            <tr>
+              <td>2024-09-02</td>
+              <td>Zona Norte</td>
+              <td>120 mm</td>
+              <td>Ruas bloqueadas por água</td>
+            </tr>
+            <tr>
+              <td>2024-09-03</td>
+              <td>Áreas de Morro</td>
+              <td>200 mm</td>
+              <td>Deslizamento de terra</td>
+            </tr>
+            <tr>
+              <td>2024-09-04</td>
+              <td>Zona Sul</td>
+              <td>180 mm</td>
+              <td>Alagamento em áreas comerciais</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="content-section" style="display: none;">
+      <h2>Suporte</h2>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h3>Perguntas Frequentes (FAQs)</h3>
+        <ul>
+          <li>
+            <strong>Q: Como posso ajudar na prevenção de enchentes?</strong>
+            <p>A: A melhor forma de prevenir enchentes é evitar o descarte irregular de lixo e o desmatamento nas margens dos rios.</p>
+          </li>
+          <li>
+            <strong>Q: O que fazer em caso de alagamento?</strong>
+            <p>A: Em caso de alagamento, evite sair de casa e siga as orientações das autoridades locais.</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Formulário de Contato -->
+      <div class="contact-form-section">
+        <h3>Entre em Contato</h3>
+        <form id="contactForm">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" placeholder="Seu Nome" required>
+
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" placeholder="Seu E-mail" required>
+
+          <label for="message">Mensagem:</label>
+          <textarea id="message" rows="4" placeholder="Sua Mensagem" required></textarea>
+
+          <button type="submit">Enviar Mensagem</button>
+        </form>
+
+        <!-- Confirmação de Envio -->
+        <div id="formConfirmation" style="display: none;">
+          <p>Obrigado por entrar em contato! Responderemos em breve.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
